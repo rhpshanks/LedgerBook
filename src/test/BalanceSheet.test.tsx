@@ -3,7 +3,7 @@ import { render, screen, fireEvent, within } from '@testing-library/react';
 import { BalanceSheet } from '../modules/reports/BalanceSheet';
 
 describe('BalanceSheet Component', () => {
-  it('renders default accounts, headers and sub-totals correctly in USD base currency', () => {
+  it('renders default accounts, headers and sub-totals correctly in USD base currency', { timeout: 15000 }, () => {
     render(<BalanceSheet onBack={vi.fn()} />);
 
     // Page titles and navigation

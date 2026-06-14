@@ -7,7 +7,6 @@ import {
   Users, 
   Settings,
   Menu,
-  Bell,
   Search,
   Receipt,
   FileBarChart,
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { useState } from 'react';
+import { NotificationsPanel } from './NotificationsPanel';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
@@ -86,10 +86,7 @@ export function AppLayout() {
               className="pl-9 pr-4 py-1.5 bg-slate-100 border border-transparent rounded-full text-sm focus:bg-white focus:border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/20 w-64 transition-all"
             />
           </div>
-          <button className="relative p-2 text-slate-600 hover:bg-slate-100 rounded-full">
-            <Bell className="w-5 h-5" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent rounded-full"></span>
-          </button>
+          <NotificationsPanel />
           <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300 font-medium text-sm text-slate-700 cursor-pointer">
             JD
           </div>
