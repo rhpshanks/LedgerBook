@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .text-color { fill: #F8FAFC; }
+    }
+    @media (prefers-color-scheme: light) {
+      .text-color { fill: #0F172A; }
+    }
+  </style>
+  <rect x="8" y="8" width="48" height="48" rx="10" fill="#0F766E" />
+  <path d="M20 20h24 M32 20v24" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="68" y="42" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="28" class="text-color" fill="#0F172A">LedgerBook</text>
+</svg>
