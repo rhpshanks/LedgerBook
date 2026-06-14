@@ -2,6 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Download, FileText, PieChart, TrendingUp, Filter } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { useState } from 'react';
+import { BalanceSheet } from './BalanceSheet';
 
 const yearlyData = [
   { month: 'Jan', revenue: 15400, spend: 11200 },
@@ -48,6 +49,11 @@ const reportCategories = [
 
 export function ReportsPage() {
   const [dateRange, setDateRange] = useState('This Year');
+  const [activeReport, setActiveReport] = useState<string | null>(null);
+
+  if (activeReport === 'Balance Sheet') {
+    return <BalanceSheet onBack={() => setActiveReport(null)} />;
+  }
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -177,7 +183,13 @@ export function ReportsPage() {
                 {category.reports.map((report, j) => (
                   <li key={j}>
                     <button 
-                      onClick={() => handleDownloadReport(report.name)}
+                      onClick={() => {
+                        if (report.name === 'Balance Sheet') {
+                          setActiveReport('Balance Sheet');
+                        } else {
+                          handleDownloadReport(report.name);
+                        }
+                      }}
                       className="w-full text-left p-3 hover:bg-slate-50 rounded-lg transition-colors group flex items-start gap-3"
                     >
                       <div className="w-8 h-8 shrink-0 rounded bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors mt-0.5">

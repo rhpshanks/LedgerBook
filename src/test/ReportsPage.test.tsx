@@ -64,4 +64,22 @@ describe('ReportsPage Component', () => {
     expect(clickSpy).toHaveBeenCalled();
     clickSpy.mockRestore();
   });
+
+  it('navigates to Balance Sheet sub-view and back to Reports directory', () => {
+    render(<ReportsPage />);
+
+    // Click on Balance Sheet in Directory
+    const bsBtn = screen.getByRole('button', { name: /Balance Sheet Assets, liabilities, and equity/ });
+    fireEvent.click(bsBtn);
+
+    // Verify Balance Sheet is displayed
+    expect(screen.getByRole('heading', { level: 1, name: 'Balance Sheet' })).toBeInTheDocument();
+
+    // Click back button
+    const backBtn = screen.getByRole('button', { name: /Back to Reports/i });
+    fireEvent.click(backBtn);
+
+    // Verify main Reports directory is back
+    expect(screen.getByRole('heading', { level: 1, name: 'Reports' })).toBeInTheDocument();
+  });
 });
