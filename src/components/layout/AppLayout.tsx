@@ -27,6 +27,28 @@ const navItems = [
   { icon: FileBarChart, label: 'Reports', path: '/reports' },
 ];
 
+function LedgerBookLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" fill="#0E8744" />
+      <path 
+        d="M33 25v50h18" 
+        stroke="white" 
+        strokeWidth="7.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+      <path 
+        d="M45 25v38 M45 25h6c7 0, 12 5, 12 12.5s-5 12.5,-12 12.5h-6 M45 50h6c7 0, 12 5, 12 12.5c0 7.5,-3 12.5,-7 12.5" 
+        stroke="white" 
+        strokeWidth="7.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+    </svg>
+  );
+}
+
 export function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const location = useLocation();
@@ -43,10 +65,11 @@ export function AppLayout() {
             <Menu className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
-              <Type className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-bold text-lg text-slate-900 hidden sm:block">LedgerBook</span>
+            <LedgerBookLogo className="w-8 h-8 shrink-0" />
+            <span className="font-bold text-lg hidden sm:block select-none">
+              <span className="text-slate-900">Ledger</span>
+              <span className="text-[#0E8744]">Book</span>
+            </span>
           </div>
           
           <div className="ml-4 px-3 py-1 bg-slate-100 rounded-md border border-slate-200 text-sm font-medium text-slate-700 cursor-pointer hover:bg-slate-200 hidden md:block">

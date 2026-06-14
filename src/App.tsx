@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppLayout } from './components/layout/AppLayout';
+import { Analytics } from '@vercel/analytics/react';
 import AuthPage from './modules/auth/AuthPage';
 import { DashboardOverview } from './modules/dashboard/DashboardOverview';
 import { InvoicesPage } from './modules/invoices/InvoicesPage';
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
